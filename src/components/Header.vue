@@ -5,6 +5,10 @@
 </template>
 
 <script>
+import {
+  bus
+} from '@/main';
+
 export default {
   props: {
     title: {
@@ -18,6 +22,8 @@ export default {
   },
   methods: {
     changeTitle: function() {
+      // this.title = "bus vue title change";
+      // bus.$emit('titleChanged', 'bus vue title change');
       this.$emit('changeTitle', 'title params');
     }
   }

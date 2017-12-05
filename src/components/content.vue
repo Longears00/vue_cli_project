@@ -20,7 +20,26 @@ export default {
     return {
 
     }
-  }
+  },
+  //lifecycle hooks
+  beforeCreate() {
+    console.log('before vue created');
+  },
+  created() {
+    console.log('created');
+  },
+  beforeMount() {
+    console.log('before mounted');
+  },
+  mounted() {
+    console.log('mounted');
+  },
+  beforeUpdate() {
+    console.log('before date update');
+  },
+  updated() {
+    console.log('updated');
+  },
 }
 </script>
 
