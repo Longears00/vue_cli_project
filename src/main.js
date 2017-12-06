@@ -17,18 +17,29 @@ Vue.directive('rainbow', {
   });
 
 Vue.directive('theme', {
-    componentUpdated(el, binding, vnode) {
-      if (binding.value == 'spring') {
-        el.style.background = 'green';
-      } else if (binding.value == 'summer') {
-        el.style.background = 'orange';
-      } else if (binding.value == 'automn') {
-        el.style.background = 'yellow';
-      } else if (binding.value == 'winter') {
-        el.style.background = 'white';
-      }
-    },
-  });
+  bind(el, binding, vnode) {
+    if (binding.arg == 'column') {
+      el.style.border = '4px solid lightblue';
+    }
+  },
+
+  componentUpdated(el, binding, vnode) {
+    if (binding.value == 'spring') {
+      el.style.background = 'green';
+    } else if (binding.value == 'summer') {
+      el.style.background = 'orange';
+    } else if (binding.value == 'automn') {
+      el.style.background = 'yellow';
+    } else if (binding.value == 'winter') {
+      el.style.background = 'white';
+    }
+  },
+});
+
+//customer filters
+Vue.filter('to-uppercase', function (value) {
+  return value.toUpperCase();
+});
 
 /* eslint-disable no-new */
 new Vue({

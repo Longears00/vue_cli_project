@@ -1,12 +1,13 @@
 <template lang="html">
-  <div class="" id="show-blogs" v-theme="theme">
+  <div class="" id="show-blogs" v-theme:column="theme">
       <label>theme:</label>
               <select v-model="theme">
                   <option v-for="sing in themes">{{ sing }}</option>
               </select>
       <h1>all blog articles</h1>
-      <div class="single-blog" v-for="blog in blogs">
-          <h3 v-rainbow>{{ blog.title }}</h3>
+      <input type="text" v-model="search" placeholder="search blog" name="" value="">
+      <div class="single-blog" v-for="blog in filteredBlogs">
+          <h3 v-rainbow>{{ blog.title | to-uppercase }}</h3>
           <p>{{ blog.body }}</p>
       </div>
   </div>
@@ -16,6 +17,7 @@
 export default {
   data() {
     return {
+      search: '',
       theme: 'spring',
       themes: [
         'spring', 'summer', 'automn', 'winter'
@@ -27,6 +29,14 @@ export default {
     this.$http.get('https://jsonplaceholder.typicode.com/posts').then((data) => {
       this.blogs = data.body.slice(0, 10);
     })
+  },
+  computed: {
+    filteredBlogs: function() {
+      let _this = this;
+      return this.blogs.filter((blog) => {
+        return blog.title.match(_this.search);
+      })
+    }
   },
   methods: {
 
