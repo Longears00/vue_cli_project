@@ -4,12 +4,11 @@
               <select v-model="theme">
                   <option v-for="sing in themes">{{ sing }}</option>
               </select>
-      <h1>all blog articles</h1>
+      <h1>list blog title articles</h1>
       <input type="text" v-model="search" placeholder="search blog" name="" value="">
       <div class="single-blog" v-for="blog in filteredBlogs">
           <h3 v-rainbow>{{ blog.title | to-uppercase }}</h3>
-          <p>{{ blog.body }}</p>
-      </div>
+        </div>
   </div>
 </template>
 
@@ -32,21 +31,15 @@ export default {
       this.blogs = data.body.slice(0, 10);
     })
   },
-  // computed: {
-  //   filteredBlogs: function() {
-  //     let _this = this;
-  //     return this.blogs.filter((blog) => {
-  //       return blog.title.match(_this.search);
-  //     })
-  //   }
-  // },
+  computed: {
+
+  },
   //register filter locally
   filters: {
     toUppercase(value) {
       return value.toUpperCase();
     }
   },
-  mixins: [searchMixin],
   //register directives locally
   directives: {
     'randomColor': {
@@ -55,6 +48,7 @@ export default {
       }
     }
   },
+  mixins: [searchMixin],
   methods: {
 
   },

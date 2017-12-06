@@ -6,6 +6,7 @@ import router from './router';
 import vueResource from 'vue-resource';
 
 Vue.use(vueResource);
+
 Vue.config.productionTip = false;
 export const bus = new Vue();
 
@@ -36,10 +37,10 @@ Vue.directive('theme', {
   },
 });
 
-//customer filters
-Vue.filter('to-uppercase', function (value) {
-  return value.toUpperCase();
-});
+//customer filters globally
+// Vue.filter('to-uppercase', function (value) {
+//   return value.toUpperCase();
+// });
 
 /* eslint-disable no-new */
 new Vue({
