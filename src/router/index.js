@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import test from '@/components/test';
 import app from '@/components/App';
 import slots from '@/components/slots';
-import dynamicApp from '@/components/dynamic_app';
 import blogApp from '@/components/blog_app';
 
 Vue.use(Router);
