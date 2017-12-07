@@ -7,7 +7,7 @@
       <h1>list blog title articles</h1>
       <input type="text" v-model="search" placeholder="search blog" name="" value="">
       <div class="single-blog" v-for="blog in filteredBlogs">
-          <h3 v-rainbow>{{ blog.title | to-uppercase }}</h3>
+          <router-link v-bind:to="'/blog/'+blog.id"><h3 v-rainbow>{{ blog.title | to-uppercase }}</h3></router-link>
         </div>
   </div>
 </template>

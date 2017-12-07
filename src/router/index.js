@@ -7,6 +7,7 @@ import blogApp from '@/components/blog_app';
 import listBlog from '@/components/listBlogs';
 import showBlog from '@/components/showBlog';
 import addBlog from '@/components/addBlog';
+import singleBlog from '@/components/singleBlog';
 
 Vue.use(Router);
 
@@ -27,6 +28,10 @@ export default new Router({
             path: '/add',
             name: 'Hello add',
             component: addBlog,
+          },
+          {
+            path: '/blog/:id',
+            component: singleBlog,
           },
    ],
   });
